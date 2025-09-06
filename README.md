@@ -6,7 +6,7 @@
 This guide will help you set up your KeyBridge (or your esp32 devkit setup as per `/hardware/devkit_setup`) to convert keyboard and macropad commands into Home Assistant MQTT messages for triggering automations.
 Note: make sure that your version of esp32 supports USB Host (ESP32S3 tested working).
 
-### ⭐ Show Your Support!
+## ⭐ Show Your Support!
 
 If you find this project useful, please consider giving it a star! It helps increase the project's visibility and is a great way to show your appreciation. Thank you for your support! 🙏
 
