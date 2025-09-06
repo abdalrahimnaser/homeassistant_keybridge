@@ -1,4 +1,4 @@
-# KeyBridge: Keyboard to Home Assistant MQTT Bridge
+# HASS KeyBridge: Keyboard to Home Assistant MQTT Bridge
 <p align="center">
   <img width="421" height="410" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/68ae9a1e-cb8d-4bdf-9eef-5706d07371ea" />
 </p>
