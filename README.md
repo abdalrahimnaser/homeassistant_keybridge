@@ -54,5 +54,6 @@ Build and flash the project to your ESP32, you can do that in one go via the fir
 ## Example Use Case
 
 A basic automation might trigger a persistent notification whenever the `0` key is pressed on your connected keyboard/macropad, demonstrating successful communication between your KeyBridge and Home Assistant.
+<p align="center"> <img width="489" height="212" alt="image" src="https://github.com/user-attachments/assets/82b15e7d-d673-4ae5-a9f8-e6eabc46f880" /> </p>
 
 You can expand this setup to control lights, switches, scenes, or any other Home Assistant entities based on different key combinations from your input device.
