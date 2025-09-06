@@ -20,7 +20,7 @@ Before getting started, ensure your Home Assistant MQTT configuration is properl
 In ESP-IDF, load the **HID** example project located under **Host** examples.
 
 ### 2. Replace Source Files
-Replace all files in the `/main` directory with the files from the `/FW` directory in this repository.
+Replace all files in the `/main` directory (in the esp idf project) with the files from the `/FW` directory in this repository.
 
 ### 3. Configure Network Settings
 Run the following command to open the configuration menu:
