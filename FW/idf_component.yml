@@ -1,0 +1,8 @@
+## IDF Component Manager Manifest File
+dependencies:
+  idf: ">=4.4"
+  usb_host_hid: "^1.0.1"
+  protocol_examples_common:
+    path: ${IDF_PATH}/examples/common_components/protocol_examples_common
+  mqtt:
+    path: ${IDF_PATH}/components/mqtt/esp-mqtt
