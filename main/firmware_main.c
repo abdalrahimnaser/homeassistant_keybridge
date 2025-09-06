@@ -1,37 +1,28 @@
 #include <stdio.h>
 #include <string.h>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "esp_err.h"
-#include "esp_log.h"
-#include "usb/usb_host.h"
-#include "usb/hid_host.h"
-#include "esp_wifi.h"
-#include "esp_event.h"
-#include "nvs_flash.h"
-#include "esp_timer.h"
-#include <stdio.h>
 #include <stdint.h>
 #include <stddef.h>
-#include <string.h>
-#include "esp_system.h"
-#include "nvs_flash.h"
-#include "esp_event.h"
-#include "esp_netif.h"
-#include "protocol_examples_common.h"
-#include "esp_log.h"
-#include "mqtt_client.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/timers.h"
+#include "esp_err.h"
+#include "esp_log.h"
+#include "esp_system.h"
+#include "esp_wifi.h"
+#include "esp_event.h"
+#include "esp_timer.h"
+#include "esp_netif.h"
+#include "nvs_flash.h"
+#include "usb/usb_host.h"
+#include "usb/hid_host.h"
+#include "protocol_examples_common.h"
+#include "mqtt_client.h"
 
 static const char *TAG = "hid_min";
 
 
 
 static esp_mqtt_client_handle_t mqtt_client = NULL;
-static TimerHandle_t publish_timer = NULL;
-static int message_count = 0;
 
 
 // Simple MQTT event handler
@@ -117,34 +108,6 @@ static void usb_host_task(void *arg)
         }
     }
 }
-
-// static void hid_interface_cb(hid_host_device_handle_t hid_device_handle,
-//                              const hid_host_interface_event_t event,
-//                              void *arg)
-// {
-//     switch (event) {
-//     case HID_HOST_INTERFACE_EVENT_INPUT_REPORT: {
-//         uint8_t buf[64];
-//         size_t len = 0;
-//         char message[64];
-
-//         if (hid_host_device_get_raw_input_report_data(hid_device_handle, buf, sizeof(buf), &len) == ESP_OK) {
-//             // Intentionally do nothing with the received keys for now
-//             // esp_mqtt_client_publish(mqtt_client, "/esp32/messages", ????); ????
-            
-//         }
-
-//         break;
-//     }
-//     case HID_HOST_INTERFACE_EVENT_DISCONNECTED:
-//         (void)hid_host_device_close(hid_device_handle);
-//         ESP_LOGI(TAG, "HID device disconnected");
-//         break;
-//     default:
-//         break;
-//     }
-// }
-
 
 static char keycode_to_ascii(uint8_t modifier, uint8_t keycode)
 {
@@ -239,7 +202,7 @@ static void hid_interface_cb(hid_host_device_handle_t hid_device_handle,
                     // Publish the single character. Length is 1.
                     // NOTE: Assumes 'mqtt_client' is a valid, initialized, and accessible client handle.
                     esp_mqtt_client_publish(mqtt_client,
-                                            "/esp32/messages",
+                                            "/keybridge/key",
                                             payload,
                                             1,  // Data length is 1 for a single char
                                             1,  // QoS level 1
@@ -259,15 +222,6 @@ static void hid_interface_cb(hid_host_device_handle_t hid_device_handle,
         break;
     }
 }
-
-
-
-
-
-
-
-
-
 
 static void hid_device_cb(hid_host_device_handle_t hid_device_handle,
                           const hid_host_driver_event_t event,
@@ -341,5 +295,4 @@ void app_main(void)
     mqtt_app_start();
 
 }
-
 
