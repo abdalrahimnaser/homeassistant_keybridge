@@ -1,7 +1,14 @@
 # HASS KeyBridge: Keyboard to Home Assistant MQTT Bridge
+
+## NOTE: there is an updated version of this project with ESPHome support, please refer to the new repo here: https://github.com/abdalrahimnaser/keybridge-esphome
+
+
+
 <p align="center">
   <img width="421" height="410" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/68ae9a1e-cb8d-4bdf-9eef-5706d07371ea" />
 </p>
+
+
 
 This guide will help you set up your KeyBridge (or your esp32 devkit setup as per `/hardware/devkit_setup`) to convert keyboard and macropad commands into Home Assistant MQTT messages for triggering automations.
 Note: make sure that your version of esp32 supports USB Host (ESP32S3 tested working).
